@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EAMCET College Predictor</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <script>
+      function validateForm() {
+        const rank = document.getElementById('rank').value;
+        const rankError = document.getElementById('rankError');
+        if (rank === '') {
+          rankError.style.display = 'block';
+          return false;
+        } else {
+          rankError.style.display = 'none';
+          return true;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div
+        class="jumbotron text-center animate__animated animate__bounceInDown"
+      >
+        <h1 class="display-4">EAMCET College Predictor</h1>
+        <p class="lead">Enter your details below to predict the colleges</p>
+        <form
+          id="collegeForm"
+          method="post"
+          action="/predict"
+          onsubmit="return validateForm()"
+        >
+          <div class="form-group">
+            <input
+              type="number"
+              class="form-control"
+              id="rank"
+              name="rank"
+              placeholder="Enter your rank"
+            />
+            <div id="rankError" class="text-danger" style="display: none">
+              Please enter your rank as a number
+            </div>
+          </div>
+          <div class="form-group">
+            <select class="form-control" id="gender" name="gender">
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <select class="form-control" id="caste" name="caste">
+              <option value="OC">OC</option>
+              <option value="BC-A">BC-A</option>
+              <option value="BC-B">BC-B</option>
+              <option value="BC-C">BC-C</option>
+              <option value="BC-D">BC-D</option>
+              <option value="BC-E">BC-E</option>
+              <option value="SC">SC</option>
+              <option value="ST">ST</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <select class="form-control" id="branch" name="branch">
+              <option value="COMPUTER SCIENCE AND ENGINEERING">
+                Computer Science and Engineering
+              </option>
+              <option value="INFORMATION TECHNOLOGY">
+                Information Technology
+              </option>
+              <option value="ELECTRICAL AND ELECTRONICS ENGINEERING">
+                Electrical and Electronics Engineering
+              </option>
+              <option value="ELECTRONICS AND COMMUNICATION ENGINEERING">
+                Electronics and Communications Engineering
+              </option>
+              <option value="MECHANICAL ENGINEERING">
+                Mechanical Engineering
+              </option>
+              <option value="CIVIL ENGINEERING">Civil Engineering</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-predict btn-lg">Predict</button>
+        </form>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>

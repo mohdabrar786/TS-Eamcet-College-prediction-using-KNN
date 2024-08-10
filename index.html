@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EAMCET College Predictor</title>
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+
+      .container {
+        padding-top: 80px;
+      }
+
+      .jumbotron {
+        background-color: #007bff;
+        color: #fff;
+        padding: 40px;
+        border-radius: 10px;
+      }
+
+      .btn-predict {
+        background-color: #007bff;
+        color: #fff;
+        border-color: #007bff;
+      }
+
+      .btn-predict:hover {
+        background-color: #0056b3;
+        color: #fff;
+        border-color: #0056b3;
+      }
+
+      .form-control {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div
+        class="jumbotron text-center animate__animated animate__bounceInDown"
+      >
+        <h1 class="display-4">EAMCET College Predictor</h1>
+        <p class="lead">Enter your details below to predict the colleges</p>
+        <form id="collegeForm" method="post" action="/predict">
+          <div class="form-group">
+            <input
+              type="number"
+              class="form-control"
+              id="rank"
+              name="rank"
+              placeholder="Enter your rank"
+            />
+          </div>
+          <div class="form-group">
+            <select class="form-control" id="gender" name="gender">
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <select class="form-control" id="caste" name="caste">
+              <option value="OC">OC</option>
+              <option value="BC">BC</option>
+              <option value="SC">SC</option>
+              <option value="ST">ST</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <select class="form-control" id="branch" name="branch">
+              <option value="COMPUTER SCIENCE AND ENGINEERING">
+                Computer Science and Engineering
+              </option>
+              <option value="ELECTRICAL AND ELECTRONICS ENGINEERING">
+                Electrical and Electronics Engineering
+              </option>
+              <option value="ELECTRONICS AND COMMUNICATIONS ENGINEERING">
+                Electronics and Communications Engineering
+              </option>
+              <option value="MECHANICAL ENGINEERING">
+                Mechanical Engineering
+              </option>
+              <option value="CIVIL ENGINEERING">Civil Engineering</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-predict btn-lg">Predict</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

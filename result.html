@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EAMCET College Predictor - Result</title>
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+
+      .container {
+        padding-top: 80px;
+      }
+
+      .jumbotron {
+        background-color: #28a745;
+        color: #fff;
+        padding: 40px;
+        border-radius: 10px;
+      }
+
+      .btn-retry {
+        background-color: #28a745;
+        color: #fff;
+        border-color: #28a745;
+      }
+
+      .btn-retry:hover {
+        background-color: #218838;
+        color: #fff;
+        border-color: #218838;
+      }
+
+      .college-list {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .college-list li {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div
+        class="jumbotron text-center animate__animated animate__bounceInDown"
+      >
+        <h1 class="display-4">Predicted College</h1>
+        <p class="lead">You are likely to get admission in:</p>
+        <h2>{{ predicted_college }}</h2>
+        <hr class="my-4" />
+        <p class="lead">Here are some similar colleges:</p>
+        <ul class="college-list">
+          {% for college in target_colleges %}
+          <li>{{ college }}</li>
+          {% endfor %}
+        </ul>
+        <a class="btn btn-retry btn-lg" href="/" role="button">Predict Again</a>
+      </div>
+    </div>
+  </body>
+</html>
